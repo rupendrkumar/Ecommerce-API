@@ -45,7 +45,7 @@ router.post('/', async (req,res)=>{
         return totalPrice
     }))
 
-    const totalPrice = totalPrices.reduce((a,b) => a +b , 0);
+    const totalPrice = totalPrices.reduce((a,b) => a+b , 0);
 
     let order = new Order({
         orderItems: orderItemsIdsResolved,
@@ -62,7 +62,7 @@ router.post('/', async (req,res)=>{
     order = await order.save();
 
     if(!order)
-    return res.status(400).send('the order cannot be created!')
+    return res.status(400).send('The order cannot be created!')
 
     res.send(order);
 })
@@ -78,7 +78,7 @@ router.put('/:id',async (req, res)=> {
     )
 
     if(!order)
-    return res.status(400).send('the order cannot be update!')
+    return res.status(400).send('The order cannot be update!')
 
     res.send(order);
 })
@@ -90,9 +90,9 @@ router.delete('/:id', (req, res)=>{
             await order.orderItems.map(async orderItem => {
                 await OrderItem.findByIdAndRemove(orderItem)
             })
-            return res.status(200).json({success: true, message: 'the order is deleted!'})
+            return res.status(200).json({success: true, message: 'The order is deleted!'})
         } else {
-            return res.status(404).json({success: false , message: "order not found!"})
+            return res.status(404).json({success: false , message: "Order not found!"})
         }
     }).catch(err=>{
        return res.status(500).json({success: false, error: err}) 

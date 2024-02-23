@@ -112,7 +112,7 @@ router.put('/:id',async (req, res)=> {
     )
 
     if(!product)
-    return res.status(500).send('the product cannot be updated!')
+    return res.status(500).send('The product cannot be updated!')
 
     res.send(product);
 })
@@ -120,9 +120,9 @@ router.put('/:id',async (req, res)=> {
 router.delete('/:id', (req, res)=>{
     Product.findByIdAndRemove(req.params.id).then(product =>{
         if(product) {
-            return res.status(200).json({success: true, message: 'the product is deleted!'})
+            return res.status(200).json({success: true, message: 'The product is deleted!'})
         } else {
-            return res.status(404).json({success: false , message: "product not found!"})
+            return res.status(404).json({success: false , message: "Product not found!"})
         }
     }).catch(err=>{
        return res.status(500).json({success: false, error: err}) 
@@ -176,7 +176,7 @@ router.put(
         )
 
         if(!product)
-            return res.status(500).send('the gallery cannot be updated!')
+            return res.status(500).send('The gallery cannot be updated!')
 
         res.send(product);
     }

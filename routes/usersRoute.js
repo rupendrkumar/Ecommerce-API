@@ -38,7 +38,7 @@ router.post('/', async (req,res)=>{
     user = await user.save();
 
     if(!user)
-    return res.status(400).send('the user cannot be created!')
+    return res.status(400).send('The user cannot be created!')
 
     res.send(user);
 })
@@ -71,7 +71,7 @@ router.put('/:id',async (req, res)=> {
     )
 
     if(!user)
-    return res.status(400).send('the user cannot be created!')
+    return res.status(400).send('The user cannot be created!')
 
     res.send(user);
 })
@@ -95,7 +95,7 @@ router.post('/login', async (req,res) => {
        
         res.status(200).send({user: user.email , token: token}) 
     } else {
-       res.status(400).send('password is wrong!');
+       res.status(400).send('Password is wrong!');
     }
 
     
@@ -118,7 +118,7 @@ router.post('/register', async (req,res)=>{
     user = await user.save();
 
     if(!user)
-    return res.status(400).send('the user cannot be created!')
+    return res.status(400).send('The user cannot be created!')
 
     res.send(user);
 })
@@ -127,9 +127,9 @@ router.post('/register', async (req,res)=>{
 router.delete('/:id', (req, res)=>{
     User.findByIdAndRemove(req.params.id).then(user =>{
         if(user) {
-            return res.status(200).json({success: true, message: 'the user is deleted!'})
+            return res.status(200).json({success: true, message: 'The user is deleted!'})
         } else {
-            return res.status(404).json({success: false , message: "user not found!"})
+            return res.status(404).json({success: false , message: "User not found!"})
         }
     }).catch(err=>{
        return res.status(500).json({success: false, error: err}) 

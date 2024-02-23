@@ -4,8 +4,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv/config');
-const authJwt = require('./helpers/jwt');
-const errorHandler = require('./helpers/error-handler');
+const authJwt = require('./Handlers/jwt');
+const errorHandler = require('./Handlers/error-handler');
 
 
 app.use(cors());
